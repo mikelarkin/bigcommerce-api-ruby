@@ -91,4 +91,31 @@ class ApiTest < Test::Unit::TestCase
   end
 
 
+  def test_get_product
+      @api.connection.expects(:get).with("/products/100")
+      @api.get_product(100)
+    end
+
+    def test_get_products
+      @api.connection.expects(:get).with("/products", {})
+      @api.get_products
+    end
+
+    def test_get_products_with_pagination
+      @api.connection.expects(:get).with("/products", {:page=>2})
+      @api.get_products(:page => 2)
+    end
+
+    def test_get_products_with_limit
+      @api.connection.expects(:get).with("/products", {:limit => 10})
+      @api.get_products(:limit => 10)
+    end
+
+    def test_get_products_with_pagination_and_limit
+      @api.connection.expects(:get).with("/products", {:limit=>10, :page=>2})
+       @api.get_products(:limit => 10, :page => 2)
+    end
+
+
+
 end

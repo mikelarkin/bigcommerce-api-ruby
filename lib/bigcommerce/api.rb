@@ -41,7 +41,7 @@ module BigCommerce
     end
 
     def get_products(params={})
-      @connection.get '/products'
+      @connection.get('/products', params)
     end
 
     def get_product(id)
