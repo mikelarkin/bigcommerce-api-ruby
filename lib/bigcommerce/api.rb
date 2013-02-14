@@ -88,6 +88,10 @@ module BigCommerce
       @connection.get '/customers/' + id.to_s
     end
 
+    def get_order_shipping_addresses(id)
+      @connection.get '/orders/' + id.to_s + '/shippingaddresses'
+    end
+
     private
 
     def get_count(result)
