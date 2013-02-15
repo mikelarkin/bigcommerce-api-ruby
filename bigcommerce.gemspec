@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/bigcommerce/bigcommerce-api-ruby"
   s.description = "Enables Ruby applications to communicate with the BigCommerce API V2 (currently in beta trial)."
   s.has_rdoc = false
-  s.authors  = ["BigCommerce", "mikelarkin"]
+  s.authors  = ["BigCommerce", "mikelarkin", "jzw"]
   s.files = ["LICENSE", "Rakefile", "README.md", "bigcommerce.gemspec"] + Dir['**/*.rb'] + Dir['**/*.crt']
   s.add_dependency('json')
   s.add_development_dependency("fakeweb")
