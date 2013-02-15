@@ -4,6 +4,9 @@ class ApiTest < Test::Unit::TestCase
 
   def setup
     @api = BigCommerce::Api.new({:store_url => "https://store-12345.mybigcommerce.com", :username => "test", :api_key => "12345"})
+
+    FakeWeb.register_uri(:get, "https://test:12345@store-12345.mybigcommerce.com/api/v2/orders/100/shippingaddresses", :body => load_fixture('shipping_address'), :status => 200, :content_type => "text/json")
+
     FakeWeb.register_uri(:get, %r|https://test:12345@store-12345.mybigcommerce.com/api/v2/orders|, :body => load_fixture('order'), :status => 200, :content_type => "text/json")
     FakeWeb.register_uri(:get, %r|https://test:12345@store-12345.mybigcommerce.com/api/v2/time|, :body => load_fixture('time'), :status => 200, :content_type => "text/json")
 
@@ -88,6 +91,11 @@ class ApiTest < Test::Unit::TestCase
     @api.get_orders_by_date('2012-03-12')
 
 
+  end
+
+  def test_get_order_shipping_addresses
+    @api.connection.expects(:get).with("/orders/100/shippingaddresses")
+    @api.get_order_shipping_addresses(100)
   end
 
 

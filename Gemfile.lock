@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    bigcommerce (0.0.5)
+    bigcommerce (0.0.6)
       json
 
 GEM
   remote: http://rubygems.org/
   specs:
     fakeweb (1.3.0)
-    json (1.6.5)
+    json (1.7.3)
     metaclass (0.0.1)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
