@@ -7,6 +7,12 @@
 # ci_reporter
 /spec/reports
 
-#Ignore compiled gems
+# Ignore compiled gems
 *.gem
 
+# Ignore Mac files
+.DS_STORE
+
+# RubyMine
+.idea/
+*.rbc
